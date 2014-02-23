@@ -1,0 +1,165 @@
+人们,N:people,N:folk
+多,ADJ:many,ADJ:much,ADJ:a lot of
+通过,PREP:through,PREP:via
+社会,N:society,N:community
+比较,V:compare
+来,V:come,V:approach
+确定,V:determine,ADJ:certain
+自己的,ADJ:own
+优势,N:advantage,N:dominance
+和,CONJ:and,PREP:with
+在,PREP:at,PREP:in,PREP:on
+中,N:middle,N:center,PREP:among,PREP:during,N:China,ADJ:Chinese
+的,PREP:of
+地位,N:status
+他,N:he,N:him,ADJ:his
+认为,V:think,V:believe
+幸灾乐祸,N:gloat
+就,PREP:on,ADV:then
+来源于,PREP:from
+社会性,ADJ:social
+他们,N:they,N:them
+发现,V:find
+随着,PREP:along with
+时间,N:time
+推移,V:elapse,V:pass
+听起来,V:sound,V:ring
+明显,ADJ:obvious
+是,V:be,ADJ:right,N:yes
+黑人的,ADJ:Black,ADJ:Ethiopian
+名字,N:name,N:first name
+越来越,ADJ:more
+能,V:can
+可靠地,ADV:reliably
+表明,V:show,V:demonstrate
+孩子的,N:children
+经济,N:economy,ADJ:economic
+背景,N:background
+有所取舍,N:trade-off
+不仅,ADV:not only
+差异化,N:differentiation
+标志,N:sign,N:symbol,N:mark
+更,ADJ:more
+优秀的,ADJ:excellent
+所以,CONJ:so,ADV:therefore
+她,N:she,N:her,ADJ:her
+决定,V:decide,V:determine
+早晚,ADV:sooner or later
+要,V:want,V:wish,V:must
+打,V:fight,V:beat,V:make
+我,N:I,N:me,ADJ:my
+一个,ART:a,ART:an
+耳光,N:slap on the face, N:box on the ear
+诗,N:poetry,N:poem
+以,PREP:with,PREP:by,ADV:in order to
+最少的,ADJ:minimal
+语言,N:language
+去,V:go
+表达,N:expression,V:express
+最多,ADJ:most
+文字,N:writing
+漫画,N:cartoon,N:caricature
+习近平,N:Xi Jinping
+穿着,N:wearing
+灰色,ADJ:gray
+夹克,N:jacket
+蓝色,ADJ:blue
+裤子,N:pants
+这,N:this
+中国,N:China
+自信,N:confidence
+开放,V:open
+一种,ADJ:one kind of
+姿态,N:attitude,N:posture
+每个人,N:everyone, N:everybody
+都,ADJ:both,ADJ:all,ADV:entirely
+可能,V:may,ADJ:possible
+创业者,N:entrepeneurs
+而,CONJ:and,CONJ:while
+这些,N:these
+专业级,N:professional
+分享,V:share
+会,V:can,V:be able to
+让,V:let,V:allow
+不再,ADV:no longer,ADV:no more
+孤单,ADJ:alone
+设计,N:design,V:design
+不仅,ADV:not only
+意味着,V:mean,V:imply
+风格,N:style
+品味,V:taste,V:savor
+还,ADV:also,ADV:still,V:return
+融入,N:integration
+了,PAST TENSE MARKER
+文化,N:culture,ADJ:cultural
+与,CONJ:and
+个性,N:personality,N:individuality
+向,PREP:to,PREP:towards
+当地,ADJ:local
+媒体,N:media
+指出,V:indicate,V:point,N:indication
+法律,ADJ:legal,ADJ:legislative,N:law,N:legislation
+没有,ADJ:no,V:have not
+明文,N:plain text,V:proclaim in writing
+禁止,V:ban,V:prohibit,V:forbid
+成立,V:set up, V:establish
+这类,ADJ:this kind,ADJ:this type of
+组织,N:organization,ADJ:organizational,V:organize
+放弃,V:give up,V:abandon
+美国,N:United States
+国籍,N:nationality,N:citizenship
+个人的,ADJ:personal
+选择,V:select,V:choose
+但,CONJ:but,CONJ:however
+富人,ADJ:rich
+则是,V:is
+需要,V:need,V:want
+付出,V:pay out
+代价,N:cost,N:price
+许多,ADJ:many,ADJ:much,ADJ:a lot of
+中小学,N:high school
+大学,N:university
+只,ADV:only
+强调,V:emphasize,V:stress
+知识,N:knowledge,N:information
+传授,V:teach
+忽视,V:neglect
+对于,PREP:for,PREP:regarding
+学生,N:student
+人格,N:personality
+培养,N:culture,V:train
+现行,ADJ:active
+音乐,N:music,N:musical
+定价,N:pricing
+模式,N:mode,N:pattern
+有,V:have
+问题,N:question,N:problem
+单首,N:first single
+歌曲,N:song
+价格,N:price,N:value
+太,ADV:too,ADV:very
+高,ADV:tall,ADV:high
+那么,ADV:like that,ADV:so
+现金,N:cash
+怎么,ADV:how,ADV:why
+花,N:flower
+出去,ADV:out
+它,N:it
+变得,V:become
+更有,ADJ:more
+价值,N:value,N:worth
+成为,V:become
+最,ADJ:most
+关键,N:key,ADJ:crucial
+当,CONJ:when
+我们,N:we,N:us,ADJ:our
+面临,V:be confronted with,V:be faced
+方法,N:method,N:way
+时,N:time,ADV:occasionally
+不,ADV:not,N:no
+简单的,ADJ:straightforward,ADJ:ordinary
+或者,CONJ:or
+错,ADJ:wrong
+捷径,N:shortcut
+弯路,N:roundabout,N:detour
+对,PREP:to,ADJ:right,N:yes
