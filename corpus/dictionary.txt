@@ -5,7 +5,7 @@
 比较,V:compare
 来,V:come,V:approach
 确定,V:determine,ADJ:certain
-自己的,ADJ:own
+自己,ADJ:oneself
 优势,N:advantage,N:dominance
 和,CONJ:and,PREP:with
 在,PREP:at,PREP:in,PREP:on
@@ -21,26 +21,28 @@
 他们,N:they,N:them
 发现,V:find
 随着,PREP:along with
-时间,N:time
-推移,V:elapse,V:pass
-听起来,V:sound,V:ring
+时间推移,N:the passage of time
+听,V:listen
+起来,V:stand up,N:upward movement
 明显,ADJ:obvious
 是,V:be,ADJ:right,N:yes
-黑人的,ADJ:Black,ADJ:Ethiopian
+黑人,N:Black,N:black people
 名字,N:name,N:first name
 越来越,ADJ:more
 能,V:can
-可靠地,ADV:reliably
+可靠,ADJ:reliable
+地,N:ground,PART:ADVERBIAL_PARTICLE
 表明,V:show,V:demonstrate
-孩子的,N:children
+孩子,N:children
 经济,N:economy,ADJ:economic
 背景,N:background
-有所取舍,N:trade-off
+有所,ADV:somewhat,ADV:to some extent
+取舍,V:make a choice,V:accept or reject
 不仅,ADV:not only
 差异化,N:differentiation
 标志,N:sign,N:symbol,N:mark
-更,ADJ:more
-优秀的,ADJ:excellent
+更是,ADJ:more
+优秀,ADJ:excellent
 所以,CONJ:so,ADV:therefore
 她,N:she,N:her,ADJ:her
 决定,V:decide,V:determine
@@ -51,8 +53,9 @@
 一个,ART:a,ART:an
 耳光,N:slap on the face, N:box on the ear
 诗,N:poetry,N:poem
+就是,V:is
 以,PREP:with,PREP:by,ADV:in order to
-最少的,ADJ:minimal
+最少,ADJ:least
 语言,N:language
 去,V:go
 表达,N:expression,V:express
@@ -71,7 +74,8 @@
 开放,V:open
 一种,ADJ:one kind of
 姿态,N:attitude,N:posture
-每个人,N:everyone, N:everybody
+每个,ADJ:each
+人,N:person,N:people
 都,ADJ:both,ADJ:all,ADV:entirely
 可能,V:may,ADJ:possible
 创业者,N:entrepeneurs
@@ -90,7 +94,7 @@
 品味,V:taste,V:savor
 还,ADV:also,ADV:still,V:return
 融入,N:integration
-了,PAST TENSE MARKER
+了,?:PAST TENSE MARKER
 文化,N:culture,ADJ:cultural
 与,CONJ:and
 个性,N:personality,N:individuality
@@ -100,22 +104,20 @@
 指出,V:indicate,V:point,N:indication
 法律,ADJ:legal,ADJ:legislative,N:law,N:legislation
 没有,ADJ:no,V:have not
-明文,N:plain text,V:proclaim in writing
-禁止,V:ban,V:prohibit,V:forbid
+明文禁止,ADJ:expressly prohibited
 成立,V:set up, V:establish
-这类,ADJ:this kind,ADJ:this type of
+类,N:class,N:category,N:kind
 组织,N:organization,ADJ:organizational,V:organize
 放弃,V:give up,V:abandon
 美国,N:United States
 国籍,N:nationality,N:citizenship
-个人的,ADJ:personal
+个人,ADJ:personal,N:individual
 选择,V:select,V:choose
 但,CONJ:but,CONJ:however
 富人,ADJ:rich
-则是,V:is
+则,ADV:then
 需要,V:need,V:want
-付出,V:pay out
-代价,N:cost,N:price
+付出代价,V:price
 许多,ADJ:many,ADJ:much,ADJ:a lot of
 中小学,N:high school
 大学,N:university
@@ -134,11 +136,10 @@
 模式,N:mode,N:pattern
 有,V:have
 问题,N:question,N:problem
-单首,N:first single
-歌曲,N:song
+单,ADJ:single,ADV:alone
+首歌曲,N:song
 价格,N:price,N:value
-太,ADV:too,ADV:very
-高,ADV:tall,ADV:high
+太高,ADV:too high
 那么,ADV:like that,ADV:so
 现金,N:cash
 怎么,ADV:how,ADV:why
@@ -146,7 +147,7 @@
 出去,ADV:out
 它,N:it
 变得,V:become
-更有,ADJ:more
+更,ADJ:more
 价值,N:value,N:worth
 成为,V:become
 最,ADJ:most
@@ -156,8 +157,8 @@
 面临,V:be confronted with,V:be faced
 方法,N:method,N:way
 时,N:time,ADV:occasionally
-不,ADV:not,N:no
-简单的,ADJ:straightforward,ADJ:ordinary
+不是,N:no
+简单,ADJ:simple,N:simplicity
 或者,CONJ:or
 错,ADJ:wrong
 捷径,N:shortcut
