@@ -29,12 +29,31 @@ def loadList(file_name):
         l = [line.decode("utf-8").strip() for line in f]
     return l
 
+def loadDictionary(file_name):
+  """ dict[word][index] = [translation, POS]
+      Use dict[word][index][0] to access translation.
+      Use dict[word][index][1] to access corresponding POS. """
+
+  dict = {}
+  lines = loadList(file_name)
+  for line in lines:
+    entries = line.split(',')
+    word = entries[0]
+    dict[word] = []
+    for i in xrange(1, len(entries)):
+      entry = entries.split(':')
+      dict[word].append([entry[1], entry[0]])
+
+  return dict
+
 def main():
   corpus = "../corpus/chinese.txt"
   seg_file = "../corpus/segment.txt"
+  dictionary_file = "../corpus/dictionary.txt"
 
   bl_translator = BaselineTranslator()
   sentences = loadList(corpus)
+  dictionary = loadDictionary(dictionary_file)
 
   segmented = bl_translator.segment(sentences)
   with open(seg_file, "w") as f:

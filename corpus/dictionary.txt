@@ -1,166 +1,166 @@
-人们,N:people,N:folk
-多,ADJ:many,ADJ:much,ADJ:a lot of
-通过,PREP:through,PREP:via
-社会,N:society,N:community
-比较,V:compare
-来,V:come,V:approach
-确定,V:determine,ADJ:certain
-自己,ADJ:oneself
-优势,N:advantage,N:dominance
-和,CONJ:and,PREP:with
-在,PREP:at,PREP:in,PREP:on
-中,N:middle,N:center,PREP:among,PREP:during,N:China,ADJ:Chinese
-的,PREP:of
-地位,N:status
-他,N:he,N:him,ADJ:his
-认为,V:think,V:believe
-幸灾乐祸,N:gloat
-就,PREP:on,ADV:then
-来源于,PREP:from
-社会性,ADJ:social
-他们,N:they,N:them
-发现,V:find
-随着,PREP:along with
-时间推移,N:the passage of time
-听,V:listen
-起来,V:stand up,N:upward movement
-明显,ADJ:obvious
-是,V:be,ADJ:right,N:yes
-黑人,N:Black,N:black people
-名字,N:name,N:first name
-越来越,ADJ:more
-能,V:can
-可靠,ADJ:reliable
-地,N:ground,PART:ADVERBIAL_PARTICLE
-表明,V:show,V:demonstrate
-孩子,N:children
-经济,N:economy,ADJ:economic
-背景,N:background
-有所,ADV:somewhat,ADV:to some extent
-取舍,V:make a choice,V:accept or reject
-不仅,ADV:not only
-差异化,N:differentiation
-标志,N:sign,N:symbol,N:mark
-更是,ADJ:more
-优秀,ADJ:excellent
-所以,CONJ:so,ADV:therefore
-她,N:she,N:her,ADJ:her
-决定,V:decide,V:determine
-早晚,ADV:sooner or later
-要,V:want,V:wish,V:must
-打,V:fight,V:beat,V:make
-我,N:I,N:me,ADJ:my
-一个,ART:a,ART:an
-耳光,N:slap on the face, N:box on the ear
-诗,N:poetry,N:poem
-就是,V:is
-以,PREP:with,PREP:by,ADV:in order to
-最少,ADJ:least
-语言,N:language
-去,V:go
-表达,N:expression,V:express
-最多,ADJ:most
-文字,N:writing
-漫画,N:cartoon,N:caricature
-习近平,N:Xi Jinping
-穿着,N:wearing
-灰色,ADJ:gray
-夹克,N:jacket
-蓝色,ADJ:blue
-裤子,N:pants
-这,N:this
-中国,N:China
-自信,N:confidence
-开放,V:open
-一种,ADJ:one kind of
-姿态,N:attitude,N:posture
-每个,ADJ:each
-人,N:person,N:people
-都,ADJ:both,ADJ:all,ADV:entirely
-可能,V:may,ADJ:possible
-创业者,N:entrepeneurs
-而,CONJ:and,CONJ:while
-这些,N:these
-专业级,N:professional
-分享,V:share
-会,V:can,V:be able to
-让,V:let,V:allow
-不再,ADV:no longer,ADV:no more
-孤单,ADJ:alone
-设计,N:design,V:design
-不仅,ADV:not only
-意味着,V:mean,V:imply
-风格,N:style
-品味,V:taste,V:savor
-还,ADV:also,ADV:still,V:return
-融入,N:integration
-了,?:PAST TENSE MARKER
-文化,N:culture,ADJ:cultural
-与,CONJ:and
-个性,N:personality,N:individuality
-向,PREP:to,PREP:towards
-当地,ADJ:local
-媒体,N:media
-指出,V:indicate,V:point,N:indication
-法律,ADJ:legal,ADJ:legislative,N:law,N:legislation
-没有,ADJ:no,V:have not
-明文禁止,ADJ:expressly prohibited
-成立,V:set up, V:establish
-类,N:class,N:category,N:kind
-组织,N:organization,ADJ:organizational,V:organize
-放弃,V:give up,V:abandon
-美国,N:United States
-国籍,N:nationality,N:citizenship
-个人,ADJ:personal,N:individual
-选择,V:select,V:choose
-但,CONJ:but,CONJ:however
-富人,ADJ:rich
-则,ADV:then
-需要,V:need,V:want
-付出代价,V:price
-许多,ADJ:many,ADJ:much,ADJ:a lot of
-中小学,N:high school
-大学,N:university
-只,ADV:only
-强调,V:emphasize,V:stress
-知识,N:knowledge,N:information
-传授,V:teach
-忽视,V:neglect
-对于,PREP:for,PREP:regarding
-学生,N:student
-人格,N:personality
-培养,N:culture,V:train
-现行,ADJ:active
-音乐,N:music,N:musical
-定价,N:pricing
-模式,N:mode,N:pattern
-有,V:have
-问题,N:question,N:problem
-单,ADJ:single,ADV:alone
-首歌曲,N:song
-价格,N:price,N:value
-太高,ADV:too high
-那么,ADV:like that,ADV:so
-现金,N:cash
-怎么,ADV:how,ADV:why
-花,N:flower
-出去,ADV:out
-它,N:it
-变得,V:become
-更,ADJ:more
-价值,N:value,N:worth
-成为,V:become
-最,ADJ:most
-关键,N:key,ADJ:crucial
-当,CONJ:when
-我们,N:we,N:us,ADJ:our
-面临,V:be confronted with,V:be faced
-方法,N:method,N:way
-时,N:time,ADV:occasionally
-不是,N:no
-简单,ADJ:simple,N:simplicity
-或者,CONJ:or
-错,ADJ:wrong
-捷径,N:shortcut
-弯路,N:roundabout,N:detour
-对,PREP:to,ADJ:right,N:yes
+人们,n:people,n:folk
+多,m:many,m:much,m:a lot of
+通过,p:through,p:via
+社会,n:society,n:community
+比较,v:compare,d:relatively,d:quite
+来,v:come,v:approach
+确定,v:determine,a:certain
+自己,r:oneself
+优势,n:advantage,n:dominance
+和,c:and,p:with
+在,p:at,p:in,p:on
+中,f:middle,f:center,p:among,p:during,ns:China,a:Chinese
+的,p:of
+地位,n:status
+他,rg:he,rg:him,rg:his
+认为,v:think,v:believe
+幸灾乐祸,n:gloat
+就,p:on,d:then
+来源于,p:from
+社会性,a:social
+他们,r:they,r:them
+发现,v:find
+随着,p:along with
+时间推移,n:the passage of time
+听,v:listen
+起来,v:stand up,n:upward movement
+明显,a:obvious
+是,v:is,f:right,n:yes
+黑人,n:Black,n:black people
+名字,n:name,n:first name
+越来越,d:more
+能,v:can
+可靠,a:reliable
+地,n:ground,u:ADVERBIAL_PARTICLE
+表明,v:show,v:demonstrate
+孩子,n:children
+经济,n:economy,a:economic
+背景,n:background
+有所,d:somewhat,d:to some extent
+取舍,v:make a choice,v:accept or reject
+不仅,c:not only
+差异化,n:differentiation
+标志,n:sign,n:symbol,n:mark
+更是,d:more
+优秀,a:excellent
+所以,c:so,d:therefore
+她,r:she,r:her,r:her
+决定,v:decide,v:determine
+早晚,d:sooner or later
+要,v:want,v:wish,v:must
+打,v:fight,v:beat,v:make
+我,r:I,r:me,r:my
+一个,m:a,m:an
+耳光,n:slap on the face, n:box on the ear
+诗,n:poetry,n:poem
+就是,v:is
+以,p:with,p:by,d:in order to
+最少,a:least
+语言,n:language
+去,v:go
+表达,n:expression,v:express
+最多,a:most,d:at most
+文字,n:writing
+漫画,n:cartoon,:caricature
+习近平,nr:Xi Jinping
+穿着,n:wearing
+灰色,a:gray
+夹克,n:jacket
+蓝色,a:blue
+裤子,n:pants
+这,r:this
+中国,ns:China
+自信,v:confidence
+开放,v:open
+一种,m:one kind of
+姿态,n:attitude,n:posture
+每个,m:each
+人,n:person,n:people
+都,a:both,a:all,d:entirely
+可能,v:may,a:possible
+创业者,n:entrepeneurs
+而,c:and,c:while
+这些,r:these
+专业级,n:professional
+分享,v:share
+会,v:can,v:be able to
+让,v:let,v:allow
+不再,d:no longer,d:no more
+孤单,a:alone
+设计,n:design,v:design
+不仅,c:not only
+意味着,v:mean,v:imply
+风格,n:style
+品味,v:taste,v:savor
+还,d:also,d:still,v:return
+融入,n:integration
+了,u:PAST TENSE MARKER
+文化,n:culture,a:cultural
+与,c:and
+个性,n:personality,n:individuality
+向,p:to,p:towards
+当地,a:local
+媒体,n:media
+指出,v:indicate,v:point,n:indication
+法律,a:legal,a:legislative,n:law,n:legislation
+没有,a:no,v:have not
+明文禁止,a:expressly prohibited
+成立,v:set up, v:establish
+类,n:class,n:category,n:kind
+组织,n:organization,a:organizational,v:organize
+放弃,v:give up,v:abandon
+美国,ns:United States
+国籍,n:nationality,n:citizenship
+个人,a:personal,n:individual
+选择,v:select,v:choose
+但,c:but,c:however
+富人,n:rich
+则,d:then
+需要,v:need,v:want
+付出代价,v:pay
+许多,m:many,m:much,m:a lot of
+中小学,n:high school
+大学,n:university
+只,d:only
+强调,v:emphasize,v:stress
+知识,n:knowledge,n:information
+传授,v:teach
+忽视,v:neglect
+对于,p:for,p:regarding
+学生,n:student
+人格,n:personality
+培养,n:culture,:train
+现行,a:active,d:in operation,v:is in effect
+音乐,n:music,n:musical
+定价,n:pricing
+模式,:mode,n:pattern
+有,v:have
+问题,n:question,n:problem
+单,a:single,d:alone
+首歌曲,n:song
+价格,n:price,n:value
+太高,a:too high
+那么,d:like that,d:so
+现金,n:cash
+怎么,d:how,d:why
+花,n:flower,v:spend
+出去,d:out
+它,n:it
+变得,v:become
+更,d:more
+价值,n:value,n:worth
+成为,v:become
+最,a:most
+关键,n:key,a:crucial
+当,c:when
+我们,r:we,r:us,r:our
+面临,v:be confronted with,v:be faced
+方法,n:method,n:way
+时,n:time,d:occasionally
+不是,n:no
+简单,a:simple,n:simplicity
+或者,c:or
+错,a:wrong
+捷径,n:shortcut
+弯路,n:roundabout,n:detour
+对,p:to,a:right,n:yes
