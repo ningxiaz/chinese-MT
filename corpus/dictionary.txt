@@ -1,166 +1,167 @@
-人们,n:people,n:folk
-多,m:many,m:much,m:a lot of
-通过,p:through,p:via
-社会,n:society,n:community
-比较,v:compare,d:relatively,d:quite
-来,v:come,v:approach
-确定,v:determine,a:certain
-自己,r:oneself
-优势,n:advantage,n:dominance
-和,c:and,p:with
-在,p:at,p:in,p:on
-中,f:middle,f:center,p:among,p:during,ns:China,a:Chinese
-的,p:of
-地位,n:status
-他,rg:he,rg:him,rg:his
-认为,v:think,v:believe
-幸灾乐祸,n:gloat
-就,p:on,d:then
-来源于,p:from
-社会性,a:social
-他们,r:they,r:them
-发现,v:find
-随着,p:along with
-时间推移,n:the passage of time
-听,v:listen
-起来,v:stand up,n:upward movement
-明显,a:obvious
-是,v:is,f:right,n:yes
-黑人,n:Black,n:black people
-名字,n:name,n:first name
-越来越,d:more
-能,v:can
-可靠,a:reliable
-地,n:ground,u:ADVERBIAL_PARTICLE
-表明,v:show,v:demonstrate
-孩子,n:children
-经济,n:economy,a:economic
-背景,n:background
-有所,d:somewhat,d:to some extent
-取舍,v:make a choice,v:accept or reject
-不仅,c:not only
-差异化,n:differentiation
-标志,n:sign,n:symbol,n:mark
-更是,d:more
-优秀,a:excellent
-所以,c:so,d:therefore
-她,r:she,r:her,r:her
-决定,v:decide,v:determine
-早晚,d:sooner or later
-要,v:want,v:wish,v:must
-打,v:fight,v:beat,v:make
-我,r:I,r:me,r:my
-一个,m:a,m:an
-耳光,n:slap on the face, n:box on the ear
-诗,n:poetry,n:poem
-就是,v:is
-以,p:with,p:by,d:in order to
-最少,a:least
-语言,n:language
-去,v:go
-表达,n:expression,v:express
-最多,a:most,d:at most
-文字,n:writing
-漫画,n:cartoon,:caricature
-习近平,nr:Xi Jinping
-穿着,n:wearing
-灰色,a:gray
-夹克,n:jacket
-蓝色,a:blue
-裤子,n:pants
-这,r:this
-中国,ns:China
-自信,v:confidence
-开放,v:open
-一种,m:one kind of
-姿态,n:attitude,n:posture
-每个,m:each
-人,n:person,n:people
-都,a:both,a:all,d:entirely
-可能,v:may,a:possible
-创业者,n:entrepeneurs
-而,c:and,c:while
-这些,r:these
-专业级,n:professional
-分享,v:share
-会,v:can,v:be able to
-让,v:let,v:allow
-不再,d:no longer,d:no more
-孤单,a:alone
-设计,n:design,v:design
-不仅,c:not only
-意味着,v:mean,v:imply
-风格,n:style
-品味,v:taste,v:savor
-还,d:also,d:still,v:return
-融入,n:integration
-了,u:PAST TENSE MARKER
-文化,n:culture,a:cultural
-与,c:and
-个性,n:personality,n:individuality
-向,p:to,p:towards
-当地,a:local
-媒体,n:media
-指出,v:indicate,v:point,n:indication
-法律,a:legal,a:legislative,n:law,n:legislation
-没有,a:no,v:have not
-明文禁止,a:expressly prohibited
-成立,v:set up, v:establish
-类,n:class,n:category,n:kind
-组织,n:organization,a:organizational,v:organize
-放弃,v:give up,v:abandon
-美国,ns:United States
-国籍,n:nationality,n:citizenship
-个人,a:personal,n:individual
-选择,v:select,v:choose
-但,c:but,c:however
-富人,n:rich
-则,d:then
-需要,v:need,v:want
-付出代价,v:pay
-许多,m:many,m:much,m:a lot of
-中小学,n:high school
-大学,n:university
-只,d:only
-强调,v:emphasize,v:stress
-知识,n:knowledge,n:information
-传授,v:teach
-忽视,v:neglect
-对于,p:for,p:regarding
-学生,n:student
-人格,n:personality
-培养,n:culture,:train
-现行,a:active,d:in operation,v:is in effect
-音乐,n:music,n:musical
-定价,n:pricing
-模式,:mode,n:pattern
-有,v:have
-问题,n:question,n:problem
-单,a:single,d:alone
-首歌曲,n:song
-价格,n:price,n:value
-太高,a:too high
-那么,d:like that,d:so
-现金,n:cash
-怎么,d:how,d:why
-花,n:flower,v:spend
-出去,d:out
-它,n:it
-变得,v:become
-更,d:more
-价值,n:value,n:worth
-成为,v:become
-最,a:most
-关键,n:key,a:crucial
-当,c:when
-我们,r:we,r:us,r:our
-面临,v:be confronted with,v:be faced
-方法,n:method,n:way
-时,n:time,d:occasionally
-不是,n:no
-简单,a:simple,n:simplicity
-或者,c:or
-错,a:wrong
-捷径,n:shortcut
-弯路,n:roundabout,n:detour
-对,p:to,a:right,n:yes
+人们:n=person|people
+多:m=many,m=much,m=a lot of
+通过:p=through,p=via
+社会:n=society|societies,n=community|communities
+比较:v=compare|compares|compared|comparing|compared,d=relatively,d=quite
+来:v=come|comes|came|coming|come,v=approach|approaches|approached|approaching|approached
+确定:v=determine|determines|determined|determining|determined,a=certain
+自己:rg=oneself
+优势:n=advantage|advantages
+和:c=and,p=with
+在:p=at,p=in,p=on
+中:f=middle,f=center,p=among,p=during,ns=China,a=Chinese
+的:p=of
+地位:n=status|statuses
+他:r=he|him|his
+认为:v=think|thinks|thought|thinking|thought,v=believe|believes|believed|believing|believed
+幸灾乐祸:n=gloat|gloats
+就:p=on,d=then
+来源于:p=from
+社会性:a=social
+他们:r=they|them|their
+发现:v=find|finds|found|finding|found
+随着:p=along with 
+时间推移:n=passage of time|passages of time
+听:v=listen|listens|listened|listening|listened
+起来:v=stand up|stands up|stood up|standing up|stood up,n=upward movement|upward movements
+明显:a=obvious
+是:v=is|are|was|is|been,f=right,n=yes|yes
+黑人:n=Black|Blacks,n=black person|black people
+名字:n=name|names,n=first name|first names
+越来越:d=more
+能:v=can|can|could|able to|been able to
+可靠:a=reliable
+地:n=ground|grounds
+表明:v=show|shows|showed|showing|shown,v=demonstrate|demonstrates|demonstrated|demonstrating|demonstrated
+孩子:n=child|children
+经济:n=economy|economies,a=economic
+背景:n=background|backgrounds
+有所:d=somewhat,d=to some extent
+取舍:v=choose|chooses|chose|choosing|chosen
+不仅:c=not only
+差异化:n=differentiation|differentiations
+标志:n=sign|signs,n=symbol|symbols,n=mark|marks
+更是:d=more
+优秀:a=excellent
+所以:c=so,d=therefore
+她:r=she|her|her
+决定:v=decide|decides|decided|deciding|decided,v=determine|determines|determined|determining|determined
+早晚:d=sooner or later
+要:v=want|wants|wanted|wanting|wanted,v=wish|wishes|wished|wishing|wished,a=must
+打:v=fight|fights|fought|fighting|fought,v=beat|beats|beat|beating|beaten,v=make|makes|made|making|made
+我:r=I|me|my
+一个:m=a,m=an
+耳光:n=slap on the face|slaps on the face,n=box on the ear|boxes on the ear
+诗:n=poetry|poetry,n=poem|poems
+就是:v=is|are|was|is|been
+以:p=with,p=by,d=in order to
+最少:a=least
+语言:n=language|languages
+去:v=go|goes|went|going|gone
+表达:n=expression|expressions,v=express|expresses|expressed|expressing|expressed
+最多:a=most,d=at most
+文字:n=writing|writings
+漫画:n=cartoon|cartoons,n=caricature|caricatures
+习近平:nr=Xi Jinping
+穿着:vg=wearing
+灰色:a=gray
+夹克:n=jacket|jackets
+蓝色:a=blue
+裤子:n=pants|pants
+这:n=this|these
+中国:ns=China
+自信:n=confidence|confidences
+开放:v=open|opens|opened|opening|opened
+一种:m=one kind of
+姿态:n=attitude|attitudes,n=posture|postures
+每个:m=each
+人:n=person|people
+都:a=both,a=all,d=entirely
+可能:vl=may,a=possible
+创业者:n=entrepeneur|entrepeneur
+而:c=and,c=while
+这些:n=this|these
+专业级:n=professional|professionals
+分享:v=share|shares|shared|sharing|shared
+会:v=can|can|could|able to|been able to
+让:v=let|lets|let|letting|let,v=allow|allows|allowed|allowing|allowed
+不再:d=no longer,d=no more
+孤单:a=alone
+设计:n=design|designs,v=design|designs|designed|designing|designed
+不仅:c=not only
+意味着:v=mean|means|meant|meaning|meant,v=imply|implies|implied|implying|implied
+风格:n=style|styles
+品味:v=taste|tastes|tasted|tasting|tasted,v=savor|savors|savored|savoring|savored
+还:d=also,d=still,v=return|returns|returned|returning|returned
+融入:n=integration|integrations
+了:u=PAST TENSE MARKER
+文化:n=culture|cultures,a=cultural
+与:c=and
+个性:n=personality|personalities,n=individuality|individualities
+向:p=to,p=towards
+当地:a=local
+媒体:n=medium|media
+指出:v=indicate|indicates|indicated|indicating|indicated,v=point|points|pointed|pointing|pointed,n=indication|indications
+法律:a=legal,a=legislative,n=law|laws
+没有:a=no,vl=have not
+明文禁止:a=expressly prohibited
+成立:v=establish|establishes|established|establishing|established
+类:n=class|classes,n=category|categories,n=kind|kinds
+组织:n=organization|organizations,a=organizational,v=organize|organizes|organized|organizing|organized
+放弃:v=give up|gives up|gave up|giving up|given up,v=abandon|abandons|abandoned|abandoning|abandoned
+美国:ns=United States
+国籍:n=nationality|nationalities,n=citizenship|citizenships
+个人:a=personal,n=individual|individuals
+选择:v=select|selects|selected|selecting|selected,v=choose|chooses|chose|choosing|chosen
+但:c=but,c=however
+富人:n=rich|rich
+则:d=then
+需要:v=need|needs|needed|needing|needed,v=want|wants|wanted|wanting|wanted
+付出代价:v=pay|pays|payed|paying|payed
+许多:m=many,m=much,m=a lot of
+中小学:n=high school|high schools
+大学:n=university|universities
+只:d=only
+强调:v=emphasize|emphasizes|emphasized|emphasizing|emphasized,v=stress|stresses|stressed|stressing|stressed
+知识:n=knowledge|knowledge,n=information|information
+传授:v=teach|teaches|taught|teaching|taught
+忽视:v=neglect|neglects|neglected|neglecting|neglected
+对于:p=for,p=regarding
+学生:n=student|students
+人格:n=personality|personalities
+培养:n=culture|cultures,v=train|trains|trained|training|trained
+现行:a=active,d=in operation,v=is in effect|are in effect|was in effect|is in effect|been in effect
+音乐:n=music|music,n=musical|musicals
+定价:n=pricing|pricings
+模式:n=mode|modes,n=pattern|patterns
+有:v=has|have|had|having|had
+问题:n=question|questions,n=problem|problems
+单:a=single,d=alone
+首歌曲:n=song|songs
+价格:n=price|prices,n=value|values
+太:d=too
+高:a=high
+那么:d=like that,d=so
+现金:n=cash|cash
+怎么:d=how,d=why
+花:n=flower|flowers,v=spend|spends|spent|spending|spent
+出去:d=out
+它:r=it|it|its
+变得:v=become|becomes|became|becoming|become
+更:d=more
+价值:n=value|values,n=worth|worths
+成为:v=become|becomes|became|becoming|become
+最:a=most
+关键:n=key|keys,a=crucial
+当:c=when
+我们:r=we|us|our
+面临:v=is confronted with|are confronted with|was confronted with|is confronting with|been confronted with,v=is faced|are faced| was faced|is facing|been faced
+方法:n=method|methods,n=way|ways
+时:n=time|times,d=occasionally
+不是:n=no|no
+简单:a=simple,n=simplicity|simplicities
+或者:c=or
+错:a=wrong
+捷径:n=shortcut|shortcuts
+弯路:n=roundabout|roundabouts,n=detour|detours
+对:p=to,a=right,n=yes|yes
