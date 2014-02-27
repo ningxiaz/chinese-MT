@@ -43,15 +43,21 @@ class BaselineTranslator:
           entries = dictionary[word]
           tag_found = False
           for e in entries:
-            if e[1] == flag:
+            if e[1] is flag:
               tag_found = True
               t_word = e[0]
+              t_flag = flag
 
           # if POS tag not found, use the first translation
           if not tag_found:
             t_word = entries[0][0]
+            t_flag = entries[0][1]
 
-          t_sentence.append(t_word)
+        # elif word is u"\u002C":
+        #   t_word = ','
+        # elif word is u"\u002E":
+        #   t_word = '.'
+          t_sentence.append((t_word, t_flag))
       translated.append(t_sentence)
     return translated
 
@@ -88,12 +94,12 @@ def main():
   sentences = loadList(corpus)
   dictionary = loadDictionary(dictionary_file)
 
-  segmented = bl_translator.segment(sentences)
-  with open(seg_file, "w") as f:
-    for s in segmented:
-      string_s = " ".join(s)
-      f.write(string_s.encode("utf-8"))
-      f.write('\n')
+  # segmented = bl_translator.segment(sentences)
+  # with open(seg_file, "w") as f:
+  #   for s in segmented:
+  #     string_s = " ".join(s)
+  #     f.write(string_s.encode("utf-8"))
+  #     f.write('\n')
 
   dev = "../corpus/dev.txt"
   output_tagged = "../corpus/dev_tagged.txt"
@@ -111,7 +117,7 @@ def main():
   dev_output = "../output/dev_output.txt"
   with open(dev_output, "w") as f:
     for s in translated:
-      string_s = " ".join(s)
+      string_s = " ".join([w[0] for w in s])
       f.write(string_s.encode("utf-8"))
       f.write('\n')
 
