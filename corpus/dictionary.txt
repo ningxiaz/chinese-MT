@@ -1,29 +1,30 @@
-人们:n=person|people
+人们:n=people,n=folk
 多:m=many,m=much,m=a lot of
-通过:p=through,p=via
+通过:p=by,p=through,p=via,p=by means of,p=by way of,v=pass|passes|passed|passing|passed,v=adopt|adopts|adopted|adopting|adopted
 社会:n=society|societies,n=community|communities
-比较:v=compare|compares|compared|comparing|compared,d=relatively,d=quite
-来:v=come|comes|came|coming|come,v=approach|approaches|approached|approaching|approached
-确定:v=determine|determines|determined|determining|determined,a=certain
-自己:rg=oneself
-优势:n=advantage|advantages
-和:c=and,p=with
-在:p=at,p=in,p=on
-中:f=middle,f=center,p=among,p=during,ns=China,a=Chinese
-的:p=of
-地位:n=status|statuses
+比较:v=compare|compares|compared|comparing|compared,d=relatively,d=quite,d=fairly,n=comparison
+来:v=come|comes|came|coming|come,v=approach|approaches|approached|approaching|approached,v=occur|occurs|occurred|occurring|occurred,p=to
+确定:v=determine|determines|determined|determining|determined,a=certain,a=fixed,a=definite
+自己:rg=oneself|themselves
+优势:n=advantage|advantages,a=dominant,a=superior,a=leading
+和:c=and,p=with,n=sum|sums,v=together,v=mix|mixes|mixed|mixing|mixed
+在:p=in,p=at,v=be|is|are|was|were|being|been,v=remain|remains|remained|remaining|remained
+中:p=in,p=during,p=among,a=medium,a=central,a=Chinese,f=middle,f=center,ns=China,v=hit the mark|hits the mark|hitted the mark|hitting the mark|hitted the mark
+的:p=of,n=aim,k=-self
+地位:n=status|statuses,n=position|positions
 他:r=he|him|his
-认为:v=think|thinks|thought|thinking|thought,v=believe|believes|believed|believing|believed
+认为:v=think|thinks|thought|thinking|thought,v=believe|believes|believed|believing|believed,v=feel|feels|felt|feeling|felt
 幸灾乐祸:n=gloat|gloats
-就:p=on,d=then
+就:p=on,d=then,c=that,v=undertake|undertakes|undertook|undertaking|undertaken
 来源于:p=from
 社会性:a=social
 他们:r=they|them|their
-发现:v=find|finds|found|finding|found
-随着:p=along with 
-时间推移:n=passage of time|passages of time
-听:v=listen|listens|listened|listening|listened
+发现:n=find,n=findings,v=discover|discovers|discovered|discovering|discovered
+随着:v=in pace with,p=along with 
+时间推移:n=passage of time
+听:v=listen|listens|listened|listening|listened,n=can|cans
 起来:v=stand up|stands up|stood up|standing up|stood up,n=upward movement|upward movements
+听起来:v=sound|sounds|sounded|sounding|sounded
 明显:a=obvious
 是:v=is|are|was|is|been,f=right,n=yes|yes
 黑人:n=Black|Blacks,n=black person|black people
