@@ -1,6 +1,7 @@
 #encoding=utf-8
 import jieba
 import jieba.posseg as pseg
+import random
 
 class BaselineTranslator:
   # def __init__(self, sentences):
@@ -34,6 +35,19 @@ class BaselineTranslator:
     return tagged
 
   def translate(self, dictionary, tagged):
+    """
+    Translate word by word by looking up in the dictionary
+
+    First we match the POS tag, if no match, pick a random one.
+    TODO: use language model to choose the most likely one in English.
+
+    TODO: (now just pick the first one)
+    For special cases:
+      nouns:
+      pronoun: (maybe look for verb before it)
+      verbs: (look for past tense signs, and NERs talked about)
+    """
+
     translated = []
     for s in tagged:
       t_sentence = []
@@ -41,23 +55,26 @@ class BaselineTranslator:
         # ignore words unknown to dictionary
         if word in dictionary:
           entries = dictionary[word]
-          tag_found = False
-          for e in entries:
-            if e[1] is flag:
-              tag_found = True
-              t_word = e[0]
-              t_flag = flag
-
-          # if POS tag not found, use the first translation
-          if not tag_found:
-            t_word = entries[0][0]
-            t_flag = entries[0][1]
-
-        # elif word is u"\u002C":
-        #   t_word = ','
-        # elif word is u"\u002E":
-        #   t_word = '.'
-          t_sentence.append((t_word, t_flag))
+          if flag in entries:
+            t_flag = flag
+            if flag == 'r' or flag == 'n' or flag == 'v':
+              t_word = entries[flag][0][0] # for now it chooses the first one
+            else:
+              t_word = entries[flag][0]
+             
+          else:
+            random_key = list(entries.keys())[0]
+            
+            if type(entries[random_key][0]) is unicode:
+              t_word = entries[random_key][0]
+            if type(entries[random_key][0]) is list:
+              t_word = entries[random_key][0][0]
+            t_flag = random_key
+          t_sentence.append([t_word, t_flag, word, flag])
+            
+        elif flag is 'x':
+          t_sentence.append([',', flag, word, flag])
+          
       translated.append(t_sentence)
     return translated
 
@@ -107,6 +124,22 @@ def loadDictionary(file_name):
 
   return dict
 
+def makeSentence(wordlist):
+  """
+  Take a list of words, detect comma and delete extra spaces before it,
+  change the last comma to period, and return the final sentence.
+  """
+  if wordlist[-1] is ',':
+    wordlist[-1] = '.'
+  sentence = wordlist[0].capitalize()
+  for i in range(1, len(wordlist)):
+    w = wordlist[i]
+    if w is ',' or w is '.':
+      sentence += w
+    else:
+      sentence += (' '+w)
+  return sentence
+
 def main():
   corpus = "../corpus/chinese.txt"
   dev_file = "../corpus/dev.txt"
@@ -140,10 +173,9 @@ def main():
   dev_output = "../output/dev_output.txt"
   with open(dev_output, "w") as f:
     for s in translated:
-      string_s = " ".join([w[0] for w in s])
+      string_s = makeSentence([w[0] for w in s])
       f.write(string_s.encode("utf-8"))
       f.write('\n')
-
 
 if __name__ == '__main__':
     main()
