@@ -41,9 +41,14 @@ def loadDictionary(file_name):
         note: present participle example = "he is -->eating<--"
         note: past participle example = "you have -->eaten<--"
 
-  Ex: dict[word][index] = [translation, POS]
-      Use dict[word][index][0] to access translation.
-      Use dict[word][index][1] to access corresponding POS. """
+  Ex: dict[word][POS] = [translation1, translation2,...]
+      If POS is 'r', translation will be a list of three:
+          translation = [subject_form, object_form, possessive_form]
+      If POS is 'n', translation will be a list of two:
+          translation = [singular, plural]
+      If POS is 'v', translation will be a list of five:
+          translation = [present, present_with_s, past, present_participle, past_participle]
+  """
 
   dict = {}
   lines = loadList(file_name)
