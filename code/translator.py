@@ -30,20 +30,37 @@ def loadList(file_name):
     return l
 
 def loadDictionary(file_name):
-  """ dict[word][index] = [translation, POS]
+  """
+  Structure of entries in file:
+    general --> CHINESE:POS=TRANSLATION,POS=TRANSLATION
+   
+   Special case entries:
+    nouns --> n=singular|plural 
+    pronoun --> r=subject|object|possessive
+    verbs --> v=present|present_plus_s|past|present_participle|past_participle
+        note: present participle example = "he is -->eating<--"
+        note: past participle example = "you have -->eaten<--"
+
+  Ex: dict[word][index] = [translation, POS]
       Use dict[word][index][0] to access translation.
       Use dict[word][index][1] to access corresponding POS. """
 
   dict = {}
   lines = loadList(file_name)
   for line in lines:
-    entries = line.split(',')
-    word = entries[0]
-    dict[word] = []
-    for i in xrange(1, len(entries)):
-      entry = entries.split(':')
-      dict[word].append([entry[1], entry[0]])
-
+    line_split = line.split(':')
+    word = line_split[0]
+    entries = line_split[1].split(',')
+    dict[word] = {}
+    for entry in entries:
+      entry_split = entry.split('=')
+      POS = entry_split[0]
+      translation = entry_split[1]
+      if POS not in dict[word]:
+        dict[word][POS] = []
+      if POS == 'r' or POS == 'n' or POS == 'v':
+        translation = translation.split('|')
+      dict[word][POS].append(translation)
   return dict
 
 def main():
