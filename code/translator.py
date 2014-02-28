@@ -7,8 +7,8 @@ import nltk
 from nltk.corpus import brown
 
 class Translator:
-  # def __init__(self):
-     # self.model = nltk.NgramModel(1, brown.words())
+  def __init__(self):
+     self.model = nltk.NgramModel(1, brown.words())
 
   def segment(self, sentences):
     segmented = []
@@ -39,6 +39,16 @@ class Translator:
         line.append((w.word, w.flag))
       tagged.append(line)
     return tagged
+
+  def come_and_go_correction(self, tagged):
+    """
+    In Chinese, "来" and "去", if in front of verbs, they mean "to"
+    """
+    for s in tagged:
+      for i in range(len(s)):
+        if s[i][0] == u'来' or s[i][0] == u'去':
+          if s[i][1] is 'v' and i + 1 < len(s) and s[i+1][1] is 'v':
+            s[i] = (s[i][0], 'p')
 
   def remove_de_after_adj(self, dictionary, tagged):
     """
@@ -263,6 +273,7 @@ def main():
 
   sentences = loadList(dev_file)
   tagged_tuples = translator.tag_tuple(sentences)
+  translator.come_and_go_correction(tagged_tuples)
   tagged_tuples = translator.remove_de_after_adj(dictionary, tagged_tuples)
   translator.remove_unnecessary_character(tagged_tuples)
   translator.preposition_reorder(tagged_tuples)
