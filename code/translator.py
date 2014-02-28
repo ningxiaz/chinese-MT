@@ -83,7 +83,7 @@ class Translator:
             if w[0] == u'的':
               s[i - 1] = (new_w, 'a')
             else:
-              s[i - 1] = (new_w, 'i')
+              s[i - 1] = (new_w, s[i - 1][1])
             to_delete.append(i)
           # elif i + 1 < len(s) and s[i+1][1] is 'x':
           #   pass
