@@ -68,7 +68,7 @@
 最多:a=most,d=at most
 最多的:a=most
 文字:n=character|characters,n=writing|writings,n=text|texts,a=literal
-漫画:n=cartoon|cartoons,n=caricature|caricatures,v=cartoon|cartoons|cartooned|cartooning|cartooned
+漫画:n=comics|comics,n=cartoon|cartoons,n=caricature|caricatures,v=cartoon|cartoons|cartooned|cartooning|cartooned
 习近平:nr=Xi Jinping
 穿着:v=wear|wears|wore|wearing|worn,n=dress|dresses
 灰色:n=gray|grays,a=gray
