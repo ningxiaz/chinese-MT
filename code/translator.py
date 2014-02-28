@@ -45,6 +45,12 @@ class Translator:
       tagged.append(line)
     return tagged
 
+  def containsPOS(self, POS, word, dictionary):
+    if POS in dictionary[word]:
+  	  return True
+  	return False
+
+
   def remove_le(self, tagged):
     for s in tagged:
       to_delete = []
@@ -64,29 +70,37 @@ class Translator:
           if s[i][1] is 'v' and i + 1 < len(s) and s[i+1][1] is 'v':
             s[i] = (s[i][0], 'p')
 
-  def remove_de_after_adj(self, dictionary, tagged):
+  def merge_words(self, dictionary, tagged):
     """
     In Chinese, whenever "的" follows a word, they together may make an adjective
     So, "的" doesn't mean anything in this case.
     """
     new_tagged = []
     for s in tagged:
-      new_s = []
+      to_delete = []
+      #new_s = []
       for i in range(len(s)):
         w = s[i]
-        if w[0] == u'的' and i > 0:
+        if i > 0:
           new_w = s[i - 1][0] + w[0]
           if new_w in dictionary:
             # print new_w.encode("utf-8")
-            new_s[-1] = (new_w, 'a')
-          elif i + 1 < len(s) and s[i+1][1] is 'x':
-            pass
-          else:
-            new_s.append(w)
-        else:
-          new_s.append(w)
-      new_tagged.append(new_s)
-    return new_tagged
+            #new_s[-1] = (new_w, 'a')
+            if w[0] == u'的':
+              s[i - 1] = (new_w, 'a')
+            else:
+              s[i - 1] = (new_w, 'i')
+            to_delete.append(i)
+          # elif i + 1 < len(s) and s[i+1][1] is 'x':
+          #   pass
+          # else:
+          #   new_s.append(w)
+    #     else:
+    #       new_s.append(w)
+    #   new_tagged.append(new_s)
+    # return new_tagged
+      for i in reversed(to_delete):
+      	del s[i]
 
   def remove_unnecessary_character(self, tagged):
     """
@@ -137,6 +151,8 @@ class Translator:
       for i in reversed(to_delete):
         del s[i]
 
+  #def exchang
+
   def translate(self, dictionary, tagged):
     """
     Translate word by word by looking up in the dictionary
@@ -165,11 +181,13 @@ class Translator:
       #Check for 们
       if u'\u4eec' in word:
         plurality = "plural"
-      #Check for 你 or 我
-      if u'\u4f60' in word:
         person = 2
-      elif u'\u6211' in word:
-        person = 1
+      #Check for 你 or 我
+      else:
+        if u'\u4f60' in word:
+          person = 2
+        elif u'\u6211' in word:
+          person = 1
 
       return [plurality, person]
 
@@ -192,10 +210,13 @@ class Translator:
           if flag in entries:
             for translation in entries[flag]:
               candidates.append([translation, flag])
+              if flag is not 'v':
+              	break
           else:
             for POS in list(entries.keys()):
               for translation in entries[POS]:
                 candidates.append([translation, POS])
+
 
 
           # Choose the best based on the language model
@@ -365,7 +386,7 @@ def main():
   tagged_tuples = translator.tag_tuple(sentences)
   translator.remove_le(tagged_tuples)
   translator.come_and_go_correction(tagged_tuples)
-  tagged_tuples = translator.remove_de_after_adj(dictionary, tagged_tuples)
+  translator.merge_words(dictionary, tagged_tuples)
   translator.remove_unnecessary_character(tagged_tuples)
   translator.preposition_reorder(tagged_tuples)
   translator.of_reorder(tagged_tuples)
