@@ -5,7 +5,7 @@ import random
 import nltk
 from nltk.corpus import brown
 
-class BaselineTranslator:
+class Translator:
   def __init__(self):
      self.model = nltk.NgramModel(1, brown.words())
 
@@ -50,28 +50,33 @@ class BaselineTranslator:
       verbs: (look for past tense signs, and NERs talked about)
     """
 
+    """
+    Helper function to determine the verb form
+    t_sentence: the translated sentence
+    """
+    def verb_form(forms, t_sentence):
+      # first find the nearest pronoun before this verb
+      return 
+
     translated = []
     for s in tagged:
       t_sentence = []
-      for word, flag in s:
+      for i in range(len(s)):
+        word = s[i][0]
+        flag = s[i][1]
         # ignore words unknown to dictionary
         if word in dictionary:
           entries = dictionary[word]
           if flag in entries:
             t_flag = flag
-            if flag == 'r' or flag == 'n' or flag == 'v':
-              t_word = entries[flag][0][0] # for now it chooses the first one
-            else:
-              t_word = entries[flag][0]
-             
+          else: # if POS doesn't match, choose the first meaning
+            t_flag = list(entries.keys())[0]
+          
+          if t_flag in {'v', 'n', 'r', 'rg'}:
+            t_word = entries[t_flag][0][0] # for now it chooses the first one
           else:
-            random_key = list(entries.keys())[0]
+            t_word = entries[t_flag][0]
             
-            if type(entries[random_key][0]) is unicode:
-              t_word = entries[random_key][0]
-            if type(entries[random_key][0]) is list:
-              t_word = entries[random_key][0][0]
-            t_flag = random_key
           t_sentence.append([t_word, t_flag, word, flag])
             
         elif flag is 'x':
@@ -120,7 +125,7 @@ def loadDictionary(file_name):
       translation = entry_split[1]
       if POS not in dict[word]:
         dict[word][POS] = []
-      if POS == 'r' or POS == 'n' or POS == 'v':
+      if POS in {'v', 'n', 'r', 'rg'}:
         translation = translation.split('|')
       dict[word][POS].append(translation)
 
@@ -148,7 +153,7 @@ def main():
   seg_file = "../corpus/segment.txt"
   dictionary_file = "../corpus/dictionary.txt"
 
-  bl_translator = BaselineTranslator()
+  translator = Translator()
   sentences = loadList(corpus)
   dictionary = loadDictionary(dictionary_file)
 
@@ -162,7 +167,7 @@ def main():
   dev = "../corpus/dev.txt"
   output_tagged = "../corpus/dev_tagged.txt"
   dev_sentences = loadList(dev)
-  dev_tagged = bl_translator.tag(dev_sentences)
+  dev_tagged = translator.tag(dev_sentences)
   with open(output_tagged, "w") as f:
     for s in dev_tagged:
       string_s = " ".join(s)
@@ -170,8 +175,8 @@ def main():
       f.write('\n')
 
   sentences = loadList(dev_file)
-  tagged_tuples = bl_translator.tag_tuple(sentences)
-  translated = bl_translator.translate(dictionary, tagged_tuples)
+  tagged_tuples = translator.tag_tuple(sentences)
+  translated = translator.translate(dictionary, tagged_tuples)
   dev_output = "../output/dev_output.txt"
   with open(dev_output, "w") as f:
     for s in translated:
