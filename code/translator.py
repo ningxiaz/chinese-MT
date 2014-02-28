@@ -271,6 +271,28 @@ class Translator:
       translated.append(t_sentence)
     return translated
 
+  def modal_verbs_check(self, dictionary, translated):
+    modal_verbs = {'can', 'could', 'should', 'must', 'may', 'might', 'to', 'shall', 'will', 'would'}
+    for s in translated:
+      for i in range(len(s)):
+        if s[i][0] in modal_verbs and i + 1 < len(s):
+          if s[i + 1][1] is 'v':
+            chinese = s[i + 1][2]
+            for candidates in dictionary[chinese]['v']:
+              if s[i + 1][0] in candidates:
+                s[i + 1][0] = candidates[0] # must be original form
+
+  def nouns_check(self, dictionary, translated):
+    plural_indications = {'many', 'these', 'those', 'few', 'several', 'multiple'}
+    for s in translated:
+      for i in range(len(s)):
+        if s[i][0] in plural_indications and i + 1 < len(s):
+          if s[i + 1][1] is 'n':
+            chinese = s[i + 1][2]
+            for candidates in dictionary[chinese]['n']:
+              if s[i + 1][0] in candidates:
+                s[i + 1][0] = candidates[1] # must be plurals
+
 def loadList(file_name):
     """Loads text files as lists of lines. """
     with open(file_name) as f:
@@ -337,11 +359,20 @@ def makeSentence(wordlist):
       sentence += (' '+w)
   return sentence
 
+def write_translations(translated, output):
+  with open(output, "w") as f:
+    for s in translated:
+      string_s = makeSentence([w[0] for w in s])
+      f.write(string_s.encode("utf-8"))
+      f.write('\n')
+
 def main():
   corpus = "../corpus/chinese.txt"
   dev_file = "../corpus/dev.txt"
   seg_file = "../corpus/segment.txt"
   dictionary_file = "../corpus/dictionary.txt"
+
+  test_file = "../corpus/test.txt"
 
   translator = Translator()
   sentences = loadList(corpus)
@@ -373,12 +404,11 @@ def main():
   translator.preposition_reorder(tagged_tuples)
   translator.of_reorder(tagged_tuples)
   translated = translator.translate(dictionary, tagged_tuples)
+  translator.modal_verbs_check(dictionary, translated)
+  translator.nouns_check(dictionary, translated)
   dev_output = "../output/dev_output.txt"
-  with open(dev_output, "w") as f:
-    for s in translated:
-      string_s = makeSentence([w[0] for w in s])
-      f.write(string_s.encode("utf-8"))
-      f.write('\n')
+
+  write_translations(translated, dev_output)
 
 if __name__ == '__main__':
     main()
