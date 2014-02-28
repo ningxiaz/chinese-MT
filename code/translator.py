@@ -296,8 +296,8 @@ class Translator:
     for s in translated:
   	  to_insert = []
   	  for i in range(len(s)):
-  	    if s[i][-1] is 'n' and i > 0 and s[i - 1][-1] is 'p':
-          to_insert.append(i)
+  	  	if s[i][-1] is 'n' and i > 0 and s[i - 1][-1] is 'p':
+  	  	  to_insert.append(i)
   	  for i in reversed(to_insert):
   	    s.insert(i, ['the'])
 
@@ -410,6 +410,26 @@ def main():
 
   dev_output = "../output/dev_output.txt"
   with open(dev_output, "w") as f:
+    for s in translated:
+      string_s = makeSentence([w[0] for w in s])
+      f.write(string_s.encode("utf-8"))
+      f.write('\n')
+
+  test_file = "../corpus/test.txt"
+  sentences = loadList(test_file)
+  tagged_tuples = translator.tag_tuple(sentences)
+  translator.remove_le(tagged_tuples)
+  translator.come_and_go_correction(tagged_tuples)
+  translator.merge_words(dictionary, tagged_tuples)
+  translator.remove_unnecessary_character(tagged_tuples)
+  translator.preposition_reorder(tagged_tuples)
+  translator.of_reorder(tagged_tuples)
+  translator.exchange_sub_adj(tagged_tuples)
+  translator.transferPOS(dictionary, tagged_tuples)
+  translated = translator.translate(dictionary, tagged_tuples)
+  translator.add_articles(translated)
+  test_output = "../output/test_output.txt"
+  with open(test_output, "w") as f:
     for s in translated:
       string_s = makeSentence([w[0] for w in s])
       f.write(string_s.encode("utf-8"))

@@ -92,6 +92,7 @@
 创业者:n=entrepeneur|entrepeneurs
 而:c=and,c=while,c=but,c=yet
 专业级:n=professional|professionals,a=professional
+专业级的:a=professional
 分享:v=share|shares|shared|sharing|shared
 会:v=can|can|could
 让:v=let|lets|let|letting|let,v=make|makes|made|making|made
@@ -171,6 +172,7 @@
 成为:v=become|becomes|became|becoming|become
 最:a=most
 关键:n=key|keys,a=crucial
+关键的:a=crucial
 当:v=work as|works as|worked as|working as|worked as,t=when
 我们:r=we|us|our
 面临:v=be confronted with|am confronted with|is confronted with|are confronted with|was confronted with|were confronting with|being confronted with|been confronted with,v=be faced|am faced|is faced|are faced|was faced|were faced|being faced|been faced
