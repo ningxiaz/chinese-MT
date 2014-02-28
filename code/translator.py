@@ -2,6 +2,7 @@
 import jieba
 import jieba.posseg as pseg
 import random
+import math
 import nltk
 from nltk.corpus import brown
 
@@ -16,6 +17,9 @@ class Translator:
       segmented.append(segs)
     return segmented
   
+  def transfer(self, tag):
+    pass
+
   def tag(self, sentences):
     tagged = []
     for s in sentences:
@@ -121,22 +125,46 @@ class Translator:
         flag = s[i][1]
         # ignore words unknown to dictionary
         if word in dictionary:
+          candidates = []
           entries = dictionary[word]
           if flag in entries:
-            t_flag = flag
-          else: # if POS doesn't match, choose the first meaning
-            t_flag = list(entries.keys())[0]
-          
-          if t_flag in {'v', 'n', 'r', 'rg'}:
-            t_word = entries[t_flag][0][0] # for now it chooses the first one
+            for translation in entries[flag]:
+              candidates.append([translation, flag])
           else:
-            t_word = entries[t_flag][0]
-            
+            for POS in list(entries.keys()):
+              for translation in entries[POS]:
+                candidates.append([translation, POS])
+
+
+          # Choose the best based on the language model
+          best_translation = ""
+          best_POS = ""
+          best_score = float('-inf')
+
+          for candidate in candidates:
+              translation = candidate[0]
+              POS = candidate[1]
+              translation_score = 0
+              for tense in translation:
+                translation_score += self.model.prob(tense, [])
+              # Take average probability of tenses
+              translation_score = translation_score/len(translation)
+              if translation_score > best_score:
+                best_translation = translation
+                best_POS = POS
+                best_score = translation_score
+
+
+          t_flag = best_POS
+          # TODO: Add strategies to choose best tense
+          if t_flag in {'v', 'n', 'r'}:
+            t_word = best_translation[0] # for now it chooses the first one
+          else:
+            t_word = best_translation[0]
           t_sentence.append([t_word, t_flag, word, flag])
             
         elif flag is 'x':
           t_sentence.append([',', flag, word, flag])
-          
       translated.append(t_sentence)
     return translated
 
@@ -165,6 +193,11 @@ def loadDictionary(file_name):
           translation = [singular, plural]
       If POS is 'v', translation will be a list of five:
           translation = [present, present_with_s, past, present_participle, past_participle]
+      Else, translation will be a list of one:
+          translation = [translation]
+
+      Special Cases: "is" verbs and "can"
+               "be|am|is|are|was|were|being|been" and "can|can|could"
   """
 
   dict = {}
@@ -180,8 +213,7 @@ def loadDictionary(file_name):
       translation = entry_split[1]
       if POS not in dict[word]:
         dict[word][POS] = []
-      if POS in {'v', 'n', 'r', 'rg'}:
-        translation = translation.split('|')
+      translation = translation.split('|')
       dict[word][POS].append(translation)
 
   return dict
