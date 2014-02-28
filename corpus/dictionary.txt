@@ -8,7 +8,7 @@
 自己:n=oneself|themselves
 自己的:a=own
 优势:n=advantage|advantages,a=dominant,a=superior,a=leading
-和:c=and,p=with,n=sum|sums,v=together,v=mix|mixes|mixed|mixing|mixed
+和:c=and,p=with,n=sum|sums,d=together,v=mix|mixes|mixed|mixing|mixed
 在:p=in,p=at,v=be|am|is|are|was|were|being|been,v=remain|remains|remained|remaining|remained
 中:p=in,p=during,p=among,a=medium,a=central,a=Chinese,f=middle,f=center,v=hit the mark|hits the mark|hit the mark|hitting the mark|hit the mark
 的:p=of,n=aim,k=-self
@@ -69,7 +69,7 @@
 文字:n=character|characters,n=writing|writings,a=literal
 漫画:n=cartoon|cartoons,n=caricature|caricatures,v=cartoon|cartoons|cartooned|cartooning|cartooned
 习近平:nr=Xi Jinping
-穿着:v=wearing,n=dress|dresses
+穿着:v=wear|wears|wore|wearing|worn,n=dress|dresses
 灰色:n=gray|grays,a=gray
 灰色的:a=gray,a=ashen,a=ashy
 夹克:n=jacket|jackets

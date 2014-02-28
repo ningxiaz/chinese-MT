@@ -7,8 +7,8 @@ import nltk
 from nltk.corpus import brown
 
 class Translator:
-  # def __init__(self):
-     # self.model = nltk.NgramModel(1, brown.words())
+  def __init__(self):
+     self.model = nltk.NgramModel(1, brown.words())
 
   def segment(self, sentences):
     segmented = []
@@ -82,9 +82,29 @@ class Translator:
       # first find the nearest pronoun before this verb
       return 
 
+    def determineNoun(word):
+      plurality = "singular"
+      person = 3
+      #Check for 们
+      if u'\u4eec' in word:
+        plurality = "plural"
+      #Check for 你 or 我
+      if u'\u4f60' in word:
+        person = 2
+      elif u'\u6211' in word:
+        person = 1
+
+      return [plurality, person]
+
+
     translated = []
     for s in tagged:
       t_sentence = []
+      # Default plurality is singular
+      prev_noun_plurality = "singular"
+      # Default person without noun is 2nd
+      prev_noun_person = 2
+      nouns_seen = 0
       for i in range(len(s)):
         word = s[i][0]
         flag = s[i][1]
@@ -121,9 +141,47 @@ class Translator:
 
 
           t_flag = best_POS
-          # TODO: Add strategies to choose best tense
-          if t_flag in {'v', 'n', 'r'}:
-            t_word = best_translation[0] # for now it chooses the first one
+          # Determine if plural is true or false
+          if t_flag in {'n','r','nr'}:
+            if t_flag == 'nr':
+              prev_noun_plurality = "singular"
+              prev_noun_person = 3
+            else:
+              prev_noun = determineNoun(word)
+              prev_noun_plurality = prev_noun[0]
+              prev_noun_person = prev_noun[1]
+            nouns_seen = nouns_seen + 1
+          if t_flag == 'n':
+            if prev_noun_plurality == 'singular':
+              t_word = best_translation[0]
+            else:
+              t_word = best_translation[1]
+          elif t_flag == 'r':
+            if nouns_seen == 1:
+              t_word = best_translation[0]
+            elif i+1 < len(s) and s[i+1][0] == u'\u7684':
+              # Checked for 的
+              t_word = best_translation[2]
+            else:
+              t_word = best_translation[1]
+          elif t_flag == 'v':
+            is_verb = ("be" in best_translation[0])
+            can_verb = ("can" in best_translation[0])
+            if is_verb:
+              if prev_noun_plurality == "singular" and prev_noun_person == 1:
+                t_word = best_translation[1]
+              elif prev_noun_plurality == "singular" and prev_noun_person == 3:
+                t_word = best_translation[2]
+              else:
+                t_word = best_translation[3]
+            elif can_verb:
+              t_word = best_translation[0]
+            else:
+              if prev_noun_person == 3 and prev_noun_plurality == "singular":
+                t_word = best_translation[1]
+              else:
+                t_word = best_translation[0]
+
           else:
             t_word = best_translation[0]
           t_sentence.append([t_word, t_flag, word, flag])
