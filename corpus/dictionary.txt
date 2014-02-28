@@ -5,7 +5,7 @@
 比较:v=compare|compares|compared|comparing|compared,d=relatively,d=quite,d=fairly,n=comparison|comparisons
 来:v=come|comes|came|coming|come,v=approach|approaches|approached|approaching|approached,v=occur|occurs|occurred|occurring|occurred,p=to
 确定:v=determine|determines|determined|determining|determined,a=certain,a=fixed,a=definite
-自己:rg=oneself|themselves
+自己:n=oneself|themselves
 自己的:a=own
 优势:n=advantage|advantages,a=dominant,a=superior,a=leading
 和:c=and,p=with,n=sum|sums,v=together,v=mix|mixes|mixed|mixing|mixed
@@ -26,7 +26,7 @@
 听:v=listen|listens|listened|listening|listened,n=can|cans
 起来:v=stand up|stands up|stood up|standing up|stood up,n=upward movement|upward movements
 听起来:v=sound|sounds|sounded|sounding|sounded
-明显:a=obvious,d=obviously,n=evidence
+明显:a=obvious,d=obviously,n=evidence|evidence
 是:v=be|am|is|are|was|were|being|been,a=right
 黑人:n=Black|Blacks,n=black people|black people
 名字:n=name|names,n=first name|first names
@@ -35,14 +35,14 @@
 可靠:a=reliable
 地:n=ground|grounds,uv=
 可靠地:d=reliably
-表明:v=show|shows|showed|showing|shown,v=indicate|indicates|indicated|indicating|indicated,n=evidence
+表明:v=show|shows|showed|showing|shown,v=indicate|indicates|indicated|indicating|indicated,n=evidence|evidence
 孩子:n=child|children,a=baby
-经济:a=economic,a=economical,n=economy|economies,n=economics
+经济:a=economic,a=economical,n=economy|economies,n=economics|economics
 背景:n=background|backgrounds
 有所:p=somewhat,d=to some extent
 取舍:v=make a choice|makes a choice|made a choice|making a choice|made a choice
 不仅:c=not only
-差异化:n=differentiation|differentiation
+差异化:n=differentiation|differentiations
 标志:n=sign|signs,n=symbol|symbols,v=mark|marks|marked|marking|marked
 更是:d=more
 优秀:a=excellent
@@ -70,10 +70,10 @@
 漫画:n=cartoon|cartoons,n=caricature|caricatures,v=cartoon|cartoons|cartooned|cartooning|cartooned
 习近平:nr=Xi Jinping
 穿着:vg=wearing,n=dress|dresses
-灰色:n=gray,a=gray
+灰色:n=gray|grays,a=gray
 灰色的:a=gray,a=ashen,a=ashy
 夹克:n=jacket|jackets
-蓝色:n=blue|blue,a=blue
+蓝色:n=blue|blus,a=blue
 蓝色的:a=blue
 裤子:n=pants|pants
 这:p=this,d=now
@@ -107,7 +107,7 @@
 文化:n=culture|cultures,a=cultural
 与:c=and,v=give|gives|gave|giving|given
 个性:n=personality|personalities,n=individuality|individualities
-向:p=to,p=towards,n=direction
+向:p=to,p=towards,n=direction|directions
 当地:a=local
 媒体:n=medium|media
 指出:v=indicate|indicates|indicated|indicating|indicated,v=point|points|pointed|pointing|pointed,n=indication|indications,n=indication|indications
@@ -132,7 +132,7 @@
 代价:n=cost|costs,n=price|prices
 付出代价:v=pay|pays|paid|paying|paid
 许多:m=many,m=much,m=a lot of
-中小学:n=primary and secondary schools|primary and secondary schools
+中小学:n=primary and secondary school|primary and secondary schools
 大学:n=university|universities
 只:d=only,d=just,c=but
 强调:v=emphasize|emphasizes|emphasized|emphasizing|emphasized,v=underline|underlines|underlined|underlining|underlined
