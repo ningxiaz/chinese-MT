@@ -273,14 +273,16 @@ class Translator:
 
   def modal_verbs_check(self, dictionary, translated):
     modal_verbs = {'can', 'could', 'should', 'must', 'may', 'might', 'to', 'shall', 'will', 'would'}
+    check_after = 8
     for s in translated:
       for i in range(len(s)):
-        if s[i][0] in modal_verbs and i + 1 < len(s):
-          if s[i + 1][1] is 'v':
-            chinese = s[i + 1][2]
-            for candidates in dictionary[chinese]['v']:
-              if s[i + 1][0] in candidates:
-                s[i + 1][0] = candidates[0] # must be original form
+        if s[i][0] in modal_verbs:
+          for j in range(i + 1, min(i + check_after, len(s))):
+            if s[j][1] is 'v':
+              chinese = s[j][2]
+              for candidates in dictionary[chinese]['v']:
+                if s[j][0] in candidates:
+                  s[j][0] = candidates[0] # must be original form
 
   def nouns_check(self, dictionary, translated):
     plural_indications = {'many', 'these', 'those', 'few', 'several', 'multiple'}
@@ -395,7 +397,7 @@ def main():
       f.write(string_s.encode("utf-8"))
       f.write('\n')
 
-  sentences = loadList(dev_file)
+  sentences = loadList(test_file)
   tagged_tuples = translator.tag_tuple(sentences)
   translator.remove_le(tagged_tuples)
   translator.come_and_go_correction(tagged_tuples)
@@ -406,7 +408,7 @@ def main():
   translated = translator.translate(dictionary, tagged_tuples)
   translator.modal_verbs_check(dictionary, translated)
   translator.nouns_check(dictionary, translated)
-  dev_output = "../output/dev_output.txt"
+  dev_output = "../output/test_output.txt"
 
   write_translations(translated, dev_output)
 
