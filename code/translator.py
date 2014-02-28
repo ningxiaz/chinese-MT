@@ -14,6 +14,9 @@ class BaselineTranslator:
       segmented.append(segs)
     return segmented
   
+  def transfer(self, tag):
+    pass
+
   def tag(self, sentences):
     tagged = []
     for s in sentences:
