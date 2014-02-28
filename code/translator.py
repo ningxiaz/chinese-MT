@@ -206,11 +206,14 @@ class Translator:
           for candidate in candidates:
               translation = candidate[0]
               POS = candidate[1]
-              translation_score = 0
+              translation_score = 0.0
               for tense in translation:
-                translation_score += self.model.prob(tense, [])
+                tense_score = self.model.prob(tense, [])
+                #Handle bug in nltk.ngrams. It returns 0.022011... when word isn't found
+                if tense_score > 0.022011 and tense_score < 0.022012:
+                  tense_score = 0
+                translation_score += tense_score
               # Take average probability of tenses
-              translation_score = translation_score/len(translation)
               if translation_score > best_score:
                 best_translation = translation
                 best_POS = POS
