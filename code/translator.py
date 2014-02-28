@@ -36,9 +36,23 @@ class Translator:
       words = pseg.cut(s)
       line = []
       for w in words:
-        line.append((w.word, w.flag))
+        if w.flag is 'l':
+          line.append((w.word, 'n'))
+        elif w.flag is 'uj':
+          line.append((w.word, 'p'))
+        else:
+          line.append((w.word, w.flag))
       tagged.append(line)
     return tagged
+
+  def remove_le(self, tagged):
+    for s in tagged:
+      to_delete = []
+      for i in range(len(s)):
+        if s[i][0] == u"了":
+          to_delete.append(i)
+      for i in reversed(to_delete):
+        del s[i]
 
   def come_and_go_correction(self, tagged):
     """
@@ -103,6 +117,24 @@ class Translator:
             if i > 1 and s[i - 2][0] == u'在':
               zai.append(i - 2)
       for i in reversed(zai):
+        del s[i]
+
+  def of_reorder(self, tagged):
+    for s in tagged:
+      to_delete = []
+      for i in range(len(s)):
+        if s[i][0] == u'的':
+          if i > 0 and i + 1 < len(s):
+            if s[i - 1][1] is 'n' and s[i + 1][1] is 'n':
+              w = s[i - 1]
+              s[i - 1] = s[i + 1]
+              s[i + 1] = w
+              if i - 1 > 0 and s[i - 2][1] is 'p':
+                w = s[i]
+                s[i] = s[i - 2]
+                s[i - 2] = w
+                to_delete.append(i - 2)
+      for i in reversed(to_delete):
         del s[i]
 
   def translate(self, dictionary, tagged):
@@ -212,23 +244,20 @@ class Translator:
           elif t_flag == 'v':
             is_verb = ("be" in best_translation[0])
             can_verb = ("can" in best_translation[0])
-            past_tense = False
-            if i+1 < len(s) and s[i+1][0] == u'了':
-              past_tense = True
             if is_verb:
               if prev_noun_plurality == "singular" and prev_noun_person == 1:
-                t_word = best_translation[4 if past_tense else 1]
+                t_word = best_translation[1]
               elif prev_noun_plurality == "singular" and prev_noun_person == 3:
-                t_word = best_translation[4 if past_tense else 2]
+                t_word = best_translation[2]
               else:
-                t_word = best_translation[5 if past_tense else 3]
+                t_word = best_translation[3]
             elif can_verb:
-              t_word = best_translation[2 if past_tense else 0]
+              t_word = best_translation[0]
             else:
               if prev_noun_person == 3 and prev_noun_plurality == "singular":
-                t_word = best_translation[2 if past_tense else 1]
+                t_word = best_translation[1]
               else:
-                t_word = best_translation[2 if past_tense else 0]
+                t_word = best_translation[0]
 
           else:
             t_word = best_translation[0]
@@ -334,10 +363,12 @@ def main():
 
   sentences = loadList(dev_file)
   tagged_tuples = translator.tag_tuple(sentences)
+  translator.remove_le(tagged_tuples)
   translator.come_and_go_correction(tagged_tuples)
   tagged_tuples = translator.remove_de_after_adj(dictionary, tagged_tuples)
   translator.remove_unnecessary_character(tagged_tuples)
   translator.preposition_reorder(tagged_tuples)
+  translator.of_reorder(tagged_tuples)
   translated = translator.translate(dictionary, tagged_tuples)
   dev_output = "../output/dev_output.txt"
   with open(dev_output, "w") as f:
