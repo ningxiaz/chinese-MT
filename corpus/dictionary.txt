@@ -81,6 +81,7 @@
 中国:ns=China
 自信:n=confidence|confidence
 开放:v=open|opens|opened|opening|opened
+开放的:a=open
 一种:m=one kind of
 姿态:n=attitude|attitudes,n=posture|postures
 每个:m=each
@@ -122,6 +123,7 @@
 美国:ns=United States
 国籍:n=nationality|nationalities,n=citizenship|citizenships
 个人:a=personal,n=individual|individuals,p=I,p=oneself
+个人的:a=personal
 选择:v=select|selects|selected|selecting|selected,v=choose|chooses|chose|choosing|chosen,n=choice|choices
 但:c=but,c=however,d=still,d=only
 但是:c=but,c=however,d=still
@@ -144,6 +146,7 @@
 人格:n=personality|personalities
 培养:n=culture|cultures,v=culture|cultures|cultured|culturing|cultured,v=train|trains|trained|training|trained
 现行:a=current,a=active,d=in operation,v=be in effect|am in effect|is in effect|are in effect|was in effect|were in effect|being in effect|been in effect
+现行的:a=the current
 音乐:n=music|music,n=musical|musicals
 定价:n=pricing|pricings,n=fixed price|fixed prices
 模式:n=mode|modes,n=pattern|patterns
