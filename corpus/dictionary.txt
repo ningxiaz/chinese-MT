@@ -1,7 +1,7 @@
 人们:n=people|people,n=folk|folks
 多:m=many,m=much,m=a lot of
 通过:p=by,p=through,p=via,p=by means of,p=by way of,v=pass|passes|passed|passing|passed,v=adopt|adopts|adopted|adopting|adopted
-社会:n=society|societies,n=community|communities
+社会:n=society|societies
 比较:v=compare|compares|compared|comparing|compared,d=relatively,d=quite,d=fairly,n=comparison|comparisons
 来:v=come|comes|came|coming|come,v=approach|approaches|approached|approaching|approached,v=occur|occurs|occurred|occurring|occurred,p=to
 确定:v=determine|determines|determined|determining|determined,a=certain,a=fixed,a=definite
@@ -41,6 +41,7 @@
 背景:n=background|backgrounds
 有所:p=somewhat,d=to some extent
 取舍:v=make a choice|makes a choice|made a choice|making a choice|made a choice
+有所取舍:i=trade-offs
 不仅:c=not only
 差异化:n=differentiation|differentiations
 标志:n=sign|signs,n=symbol|symbols,v=mark|marks|marked|marking|marked
@@ -66,8 +67,8 @@
 表达:n=expression|expressions,v=express|expresses|expressed|expressing|expressed
 最多:a=most,d=at most
 最多的:a=most
-文字:n=character|characters,n=writing|writings,a=literal
-漫画:n=cartoon|cartoons,n=caricature|caricatures,v=cartoon|cartoons|cartooned|cartooning|cartooned
+文字:n=character|characters,n=writing|writings,n=text|texts,a=literal
+漫画:n=comics|comics,n=cartoon|cartoons,n=caricature|caricatures,v=cartoon|cartoons|cartooned|cartooning|cartooned
 习近平:nr=Xi Jinping
 穿着:v=wear|wears|wore|wearing|worn,n=dress|dresses
 灰色:n=gray|grays,a=gray
@@ -134,7 +135,7 @@
 代价:n=cost|costs,n=price|prices
 付出代价:v=pay|pays|paid|paying|paid
 许多:m=many,m=much,m=a lot of
-中小学:n=primary and secondary school|primary and secondary schools
+中小学:n=primary and secondary schools|primary and secondary schools
 大学:n=university|universities
 只:d=only,d=just,c=but
 强调:v=emphasize|emphasizes|emphasized|emphasizing|emphasized,v=underline|underlines|underlined|underlining|underlined

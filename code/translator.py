@@ -17,9 +17,6 @@ class Translator:
       segmented.append(segs)
     return segmented
   
-  def transfer(self, tag):
-    pass
-
   def tag(self, sentences):
     tagged = []
     for s in sentences:
@@ -64,29 +61,25 @@ class Translator:
           if s[i][1] is 'v' and i + 1 < len(s) and s[i+1][1] is 'v':
             s[i] = (s[i][0], 'p')
 
-  def remove_de_after_adj(self, dictionary, tagged):
+  def merge_words(self, dictionary, tagged):
     """
     In Chinese, whenever "的" follows a word, they together may make an adjective
     So, "的" doesn't mean anything in this case.
     """
-    new_tagged = []
     for s in tagged:
-      new_s = []
+      to_delete = []
       for i in range(len(s)):
         w = s[i]
-        if w[0] == u'的' and i > 0:
+        if i > 0:
           new_w = s[i - 1][0] + w[0]
           if new_w in dictionary:
-            # print new_w.encode("utf-8")
-            new_s[-1] = (new_w, 'a')
-          elif i + 1 < len(s) and s[i+1][1] is 'x':
-            pass
-          else:
-            new_s.append(w)
-        else:
-          new_s.append(w)
-      new_tagged.append(new_s)
-    return new_tagged
+            if w[0] == u'的':
+              s[i - 1] = (new_w, 'a')
+            else:
+              s[i - 1] = (new_w, s[i - 1][1])
+            to_delete.append(i)
+      for i in reversed(to_delete):
+      	del s[i]
 
   def remove_unnecessary_character(self, tagged):
     """
@@ -137,6 +130,32 @@ class Translator:
       for i in reversed(to_delete):
         del s[i]
 
+  def exchange_sub_adj(self, tagged):
+  	for s in tagged:
+  	  for i in range(len(s)):
+  	  	if s[i][1] in 'am':
+  	  	  if i + 1 < len(s) and 'n' in s[i + 1][1]:
+  	  	  	break
+  	  	  elif i > 0 and 'n' in s[i - 1][1]:
+  	  	  	ex = s[i - 1]
+  	  	  	s[i - 1] = s[i]
+  	  	  	s[i] = ex
+
+
+  def containsPOS(self, POS, word, dictionary):
+    if POS in dictionary[word[0]]:
+  	  return True
+    return False
+  
+  def transferPOS(self, dictionary, tagged):
+    for s in tagged:
+      for i in range(len(s)):
+      	if s[i][1] is 'p':
+      	  for j in range(i, len(s)):
+      	  	if s[j][1] is 'x':
+      	  	  if self.containsPOS('n', s[j - 1], dictionary):
+      	  	  	s[j - 1] = (s[j - 1][0], 'n')
+
   def translate(self, dictionary, tagged):
     """
     Translate word by word by looking up in the dictionary
@@ -165,11 +184,13 @@ class Translator:
       #Check for 们
       if u'\u4eec' in word:
         plurality = "plural"
-      #Check for 你 or 我
-      if u'\u4f60' in word:
         person = 2
-      elif u'\u6211' in word:
-        person = 1
+      #Check for 你 or 我
+      else:
+        if u'\u4f60' in word:
+          person = 2
+        elif u'\u6211' in word:
+          person = 1
 
       return [plurality, person]
 
@@ -192,10 +213,13 @@ class Translator:
           if flag in entries:
             for translation in entries[flag]:
               candidates.append([translation, flag])
+              # if flag is not 'v':
+              # 	break
           else:
             for POS in list(entries.keys()):
               for translation in entries[POS]:
                 candidates.append([translation, POS])
+
 
 
           # Choose the best based on the language model
@@ -206,14 +230,11 @@ class Translator:
           for candidate in candidates:
               translation = candidate[0]
               POS = candidate[1]
-              translation_score = 0.0
+              translation_score = 0
               for tense in translation:
-                tense_score = self.model.prob(tense, [])
-                #Handle bug in nltk.ngrams. It returns 0.022011... when word isn't found
-                if tense_score > 0.022011 and tense_score < 0.022012:
-                  tense_score = 0
-                translation_score += tense_score
+                translation_score += self.model.prob(tense, [])
               # Take average probability of tenses
+              translation_score = translation_score/len(translation)
               if translation_score > best_score:
                 best_translation = translation
                 best_POS = POS
@@ -295,6 +316,15 @@ class Translator:
               if s[i + 1][0] in candidates:
                 s[i + 1][0] = candidates[1] # must be plurals
 
+  def add_articles(self, translated):
+    for s in translated:
+      to_insert = []
+      for i in range(len(s)):
+        if s[i][-1] is 'n' and i > 0 and s[i - 1][-1] is 'p':
+          to_insert.append(i)
+      for i in reversed(to_insert):
+        s.insert(i, ['the'])
+
 def loadList(file_name):
     """Loads text files as lists of lines. """
     with open(file_name) as f:
@@ -345,6 +375,7 @@ def loadDictionary(file_name):
 
   return dict
 
+
 def makeSentence(wordlist):
   """
   Take a list of words, detect comma and delete extra spaces before it,
@@ -361,24 +392,17 @@ def makeSentence(wordlist):
       sentence += (' '+w)
   return sentence
 
-def write_translations(translated, output):
-  with open(output, "w") as f:
-    for s in translated:
-      string_s = makeSentence([w[0] for w in s])
-      f.write(string_s.encode("utf-8"))
-      f.write('\n')
-
 def main():
   corpus = "../corpus/chinese.txt"
   dev_file = "../corpus/dev.txt"
   seg_file = "../corpus/segment.txt"
   dictionary_file = "../corpus/dictionary.txt"
 
-  test_file = "../corpus/test.txt"
-
   translator = Translator()
   sentences = loadList(corpus)
   dictionary = loadDictionary(dictionary_file)
+
+  test_file = "../corpus/test.txt"
 
   # segmented = bl_translator.segment(sentences)
   # with open(seg_file, "w") as f:
@@ -397,20 +421,27 @@ def main():
       f.write(string_s.encode("utf-8"))
       f.write('\n')
 
-  sentences = loadList(test_file)
+  sentences = loadList(dev_file)
   tagged_tuples = translator.tag_tuple(sentences)
   translator.remove_le(tagged_tuples)
   translator.come_and_go_correction(tagged_tuples)
-  tagged_tuples = translator.remove_de_after_adj(dictionary, tagged_tuples)
+  translator.merge_words(dictionary, tagged_tuples)
   translator.remove_unnecessary_character(tagged_tuples)
   translator.preposition_reorder(tagged_tuples)
   translator.of_reorder(tagged_tuples)
+  translator.exchange_sub_adj(tagged_tuples)
+  translator.transferPOS(dictionary, tagged_tuples)
   translated = translator.translate(dictionary, tagged_tuples)
   translator.modal_verbs_check(dictionary, translated)
   translator.nouns_check(dictionary, translated)
-  dev_output = "../output/test_output.txt"
+  translator.add_articles(translated)
 
-  write_translations(translated, dev_output)
+  dev_output = "../output/dev_output.txt"
+  with open(dev_output, "w") as f:
+    for s in translated:
+      string_s = makeSentence([w[0] for w in s])
+      f.write(string_s.encode("utf-8"))
+      f.write('\n')
 
 if __name__ == '__main__':
     main()
