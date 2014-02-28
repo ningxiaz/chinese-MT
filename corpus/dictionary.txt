@@ -104,7 +104,7 @@
 品味:n=taste|tastes,v=taste|tastes|tasted|tasting|tasted,v=savor|savors|savored|savoring|savored
 还:d=also,d=still,v=return|returns|returned|returning|returned,a=any more
 融入:n=integration|integrations
-了:u=PAST TENSE MARKER
+了:u=
 文化:n=culture|cultures,a=cultural
 与:c=and,v=give|gives|gave|giving|given
 个性:n=personality|personalities,n=individuality|individualities

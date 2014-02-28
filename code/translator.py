@@ -212,20 +212,23 @@ class Translator:
           elif t_flag == 'v':
             is_verb = ("be" in best_translation[0])
             can_verb = ("can" in best_translation[0])
+            past_tense = False
+            if i+1 < len(s) and s[i+1][0] == u'了':
+              past_tense = True
             if is_verb:
               if prev_noun_plurality == "singular" and prev_noun_person == 1:
-                t_word = best_translation[1]
+                t_word = best_translation[4 if past_tense else 1]
               elif prev_noun_plurality == "singular" and prev_noun_person == 3:
-                t_word = best_translation[2]
+                t_word = best_translation[4 if past_tense else 2]
               else:
-                t_word = best_translation[3]
+                t_word = best_translation[5 if past_tense else 3]
             elif can_verb:
-              t_word = best_translation[0]
+              t_word = best_translation[2 if past_tense else 0]
             else:
               if prev_noun_person == 3 and prev_noun_plurality == "singular":
-                t_word = best_translation[1]
+                t_word = best_translation[2 if past_tense else 1]
               else:
-                t_word = best_translation[0]
+                t_word = best_translation[2 if past_tense else 0]
 
           else:
             t_word = best_translation[0]
