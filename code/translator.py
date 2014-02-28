@@ -37,6 +37,10 @@ class Translator:
     return tagged
 
   def remove_de_after_adj(self, dictionary, tagged):
+    """
+    In Chinese, whenever "的" follows a word, they together may make an adjective
+    So, "的" doesn't mean anything in this case.
+    """
     new_tagged = []
     for s in tagged:
       new_s = []
@@ -55,6 +59,37 @@ class Translator:
           new_s.append(w)
       new_tagged.append(new_s)
     return new_tagged
+
+  def remove_unnecessary_character(self, tagged):
+    """
+    In Chinese, "当...时" means When...
+    So, "时" is not necessary
+    """
+    for s in tagged:
+      to_delete = []
+      for i in range(len(s)):
+        if s[i][0] == u"当" and s[i][1] is 't':
+          for j in range(i, len(s)):
+            if s[j][0] == u"时":
+              to_delete.append(j)
+            if s[j][1] is 'x':
+              break
+      for i in reversed(to_delete):
+        del s[i]
+
+  def preposition_reorder(self, tagged):
+    for s in tagged:
+      zai = []
+      for i in range(len(s)):
+        if s[i][1] is 'f' and i > 0:
+          if s[i - 1][1] is 'n':
+            w = (s[i][0], 'p')
+            s[i] = s[i - 1]
+            s[i - 1] = w
+            if i > 1 and s[i - 2][0] == u'在':
+              zai.append(i - 2)
+      for i in reversed(zai):
+        del s[i]
 
   def translate(self, dictionary, tagged):
     """
@@ -197,6 +232,8 @@ def main():
   sentences = loadList(dev_file)
   tagged_tuples = translator.tag_tuple(sentences)
   tagged_tuples = translator.remove_de_after_adj(dictionary, tagged_tuples)
+  translator.remove_unnecessary_character(tagged_tuples)
+  translator.preposition_reorder(tagged_tuples)
   translated = translator.translate(dictionary, tagged_tuples)
   dev_output = "../output/dev_output.txt"
   with open(dev_output, "w") as f:
