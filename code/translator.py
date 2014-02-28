@@ -17,9 +17,6 @@ class Translator:
       segmented.append(segs)
     return segmented
   
-  def transfer(self, tag):
-    pass
-
   def tag(self, sentences):
     tagged = []
     for s in sentences:
@@ -69,30 +66,18 @@ class Translator:
     In Chinese, whenever "的" follows a word, they together may make an adjective
     So, "的" doesn't mean anything in this case.
     """
-    # new_tagged = []
     for s in tagged:
       to_delete = []
-      #new_s = []
       for i in range(len(s)):
         w = s[i]
         if i > 0:
           new_w = s[i - 1][0] + w[0]
           if new_w in dictionary:
-            # print new_w.encode("utf-8")
-            #new_s[-1] = (new_w, 'a')
             if w[0] == u'的':
               s[i - 1] = (new_w, 'a')
             else:
               s[i - 1] = (new_w, s[i - 1][1])
             to_delete.append(i)
-          # elif i + 1 < len(s) and s[i+1][1] is 'x':
-          #   pass
-          # else:
-          #   new_s.append(w)
-    #     else:
-    #       new_s.append(w)
-    #   new_tagged.append(new_s)
-    # return new_tagged
       for i in reversed(to_delete):
       	del s[i]
 
@@ -164,13 +149,7 @@ class Translator:
   
   def transferPOS(self, dictionary, tagged):
     for s in tagged:
-      # subject = 0
-      # verb = 0
-      # prep = 0
-      # obj = 0
       for i in range(len(s)):
-      	# if s[i][1] is 'v':
-      	#   verb += 1
       	if s[i][1] is 'p':
       	  for j in range(i, len(s)):
       	  	if s[j][1] is 'x':
@@ -317,8 +296,8 @@ class Translator:
     for s in translated:
   	  to_insert = []
   	  for i in range(len(s)):
-  	    if s[i][-1] is 'n' and i > 0 and s[i - 1] is 'p':
-  	  	  to_insert.append(i)
+  	    if s[i][-1] is 'n' and i > 0 and s[i - 1][-1] is 'p':
+          to_insert.append(i)
   	  for i in reversed(to_insert):
   	    s.insert(i, ['the'])
 
