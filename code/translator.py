@@ -2,10 +2,12 @@
 import jieba
 import jieba.posseg as pseg
 import random
+import nltk
+from nltk.corpus import brown
 
 class BaselineTranslator:
-  # def __init__(self, sentences):
-  #   self.sentences = sentences
+  def __init__(self):
+     self.model = nltk.NgramModel(1, brown.words())
 
   def segment(self, sentences):
     segmented = []
