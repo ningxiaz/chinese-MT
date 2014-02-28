@@ -292,6 +292,30 @@ class Translator:
       translated.append(t_sentence)
     return translated
 
+  def modal_verbs_check(self, dictionary, translated):
+    modal_verbs = {'can', 'could', 'should', 'must', 'may', 'might', 'to', 'shall', 'will', 'would'}
+    check_after = 8
+    for s in translated:
+      for i in range(len(s)):
+        if s[i][0] in modal_verbs:
+          for j in range(i + 1, min(i + check_after, len(s))):
+            if s[j][1] is 'v':
+              chinese = s[j][2]
+              for candidates in dictionary[chinese]['v']:
+                if s[j][0] in candidates:
+                  s[j][0] = candidates[0] # must be original form
+
+  def nouns_check(self, dictionary, translated):
+    plural_indications = {'many', 'these', 'those', 'few', 'several', 'multiple'}
+    for s in translated:
+      for i in range(len(s)):
+        if s[i][0] in plural_indications and i + 1 < len(s):
+          if s[i + 1][1] is 'n':
+            chinese = s[i + 1][2]
+            for candidates in dictionary[chinese]['n']:
+              if s[i + 1][0] in candidates:
+                s[i + 1][0] = candidates[1] # must be plurals
+
   def add_articles(self, translated):
     for s in translated:
   	  to_insert = []
@@ -378,6 +402,8 @@ def main():
   sentences = loadList(corpus)
   dictionary = loadDictionary(dictionary_file)
 
+  test_file = "../corpus/test.txt"
+
   # segmented = bl_translator.segment(sentences)
   # with open(seg_file, "w") as f:
   #   for s in segmented:
@@ -406,6 +432,8 @@ def main():
   translator.exchange_sub_adj(tagged_tuples)
   translator.transferPOS(dictionary, tagged_tuples)
   translated = translator.translate(dictionary, tagged_tuples)
+  translator.modal_verbs_check(dictionary, translated)
+  translator.nouns_check(dictionary, translated)
   translator.add_articles(translated)
 
   dev_output = "../output/dev_output.txt"
