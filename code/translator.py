@@ -6,8 +6,8 @@ import nltk
 from nltk.corpus import brown
 
 class Translator:
-  def __init__(self):
-     self.model = nltk.NgramModel(1, brown.words())
+  # def __init__(self):
+     # self.model = nltk.NgramModel(1, brown.words())
 
   def segment(self, sentences):
     segmented = []
@@ -35,6 +35,26 @@ class Translator:
         line.append((w.word, w.flag))
       tagged.append(line)
     return tagged
+
+  def remove_de_after_adj(self, dictionary, tagged):
+    new_tagged = []
+    for s in tagged:
+      new_s = []
+      for i in range(len(s)):
+        w = s[i]
+        if w[0] == u'的' and i > 0:
+          new_w = s[i - 1][0] + w[0]
+          if new_w in dictionary:
+            # print new_w.encode("utf-8")
+            new_s[-1] = (new_w, 'a')
+          elif i + 1 < len(s) and s[i+1][1] is 'x':
+            pass
+          else:
+            new_s.append(w)
+        else:
+          new_s.append(w)
+      new_tagged.append(new_s)
+    return new_tagged
 
   def translate(self, dictionary, tagged):
     """
@@ -176,6 +196,7 @@ def main():
 
   sentences = loadList(dev_file)
   tagged_tuples = translator.tag_tuple(sentences)
+  tagged_tuples = translator.remove_de_after_adj(dictionary, tagged_tuples)
   translated = translator.translate(dictionary, tagged_tuples)
   dev_output = "../output/dev_output.txt"
   with open(dev_output, "w") as f:
