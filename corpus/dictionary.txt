@@ -69,7 +69,7 @@
 文字:n=character|characters,n=writing|writings,a=literal
 漫画:n=cartoon|cartoons,n=caricature|caricatures,v=cartoon|cartoons|cartooned|cartooning|cartooned
 习近平:nr=Xi Jinping
-穿着:vg=wearing,n=dress|dresses
+穿着:v=wearing,n=dress|dresses
 灰色:n=gray|grays,a=gray
 灰色的:a=gray,a=ashen,a=ashy
 夹克:n=jacket|jackets
