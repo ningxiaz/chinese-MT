@@ -392,36 +392,8 @@ def makeSentence(wordlist):
       sentence += (' '+w)
   return sentence
 
-def main():
-  corpus = "../corpus/chinese.txt"
-  dev_file = "../corpus/dev.txt"
-  seg_file = "../corpus/segment.txt"
-  dictionary_file = "../corpus/dictionary.txt"
-
-  translator = Translator()
-  sentences = loadList(corpus)
-  dictionary = loadDictionary(dictionary_file)
-
-  test_file = "../corpus/test.txt"
-
-  # segmented = bl_translator.segment(sentences)
-  # with open(seg_file, "w") as f:
-  #   for s in segmented:
-  #     string_s = " ".join(s)
-  #     f.write(string_s.encode("utf-8"))
-  #     f.write('\n')
-
-  dev = "../corpus/dev.txt"
-  output_tagged = "../corpus/dev_tagged.txt"
-  dev_sentences = loadList(dev)
-  dev_tagged = translator.tag(dev_sentences)
-  with open(output_tagged, "w") as f:
-    for s in dev_tagged:
-      string_s = " ".join(s)
-      f.write(string_s.encode("utf-8"))
-      f.write('\n')
-
-  sentences = loadList(dev_file)
+def translateFile(translator, dictionary, input_file, output_file):
+  sentences = loadList(input_file)
   tagged_tuples = translator.tag_tuple(sentences)
   translator.remove_le(tagged_tuples)
   translator.come_and_go_correction(tagged_tuples)
@@ -435,33 +407,38 @@ def main():
   translator.modal_verbs_check(dictionary, translated)
   translator.nouns_check(dictionary, translated)
   translator.add_articles(translated)
+  
+  with open(output_file, "w") as f:
+    for s in translated:
+      string_s = makeSentence([w[0] for w in s])
+      f.write(string_s.encode("utf-8"))
+      f.write('\n')
+
+def main():
+  corpus = "../corpus/chinese.txt"
+  dev_file = "../corpus/dev.txt"
+  test_file = "../corpus/test.txt"
+  
+  dictionary_file = "../corpus/dictionary.txt"
+
+  translator = Translator()  
+  dictionary = loadDictionary(dictionary_file)
+
+  dev = "../corpus/dev.txt"
+  output_tagged = "../corpus/dev_tagged.txt"
+  dev_sentences = loadList(dev)
+  dev_tagged = translator.tag(dev_sentences)
+  with open(output_tagged, "w") as f:
+    for s in dev_tagged:
+      string_s = " ".join(s)
+      f.write(string_s.encode("utf-8"))
+      f.write('\n')
 
   dev_output = "../output/dev_output.txt"
-  with open(dev_output, "w") as f:
-    for s in translated:
-      string_s = makeSentence([w[0] for w in s])
-      f.write(string_s.encode("utf-8"))
-      f.write('\n')
-
-  test_file = "../corpus/test.txt"
-  sentences = loadList(test_file)
-  tagged_tuples = translator.tag_tuple(sentences)
-  translator.remove_le(tagged_tuples)
-  translator.come_and_go_correction(tagged_tuples)
-  translator.merge_words(dictionary, tagged_tuples)
-  translator.remove_unnecessary_character(tagged_tuples)
-  translator.preposition_reorder(tagged_tuples)
-  translator.of_reorder(tagged_tuples)
-  translator.exchange_sub_adj(tagged_tuples)
-  translator.transferPOS(dictionary, tagged_tuples)
-  translated = translator.translate(dictionary, tagged_tuples)
-  translator.add_articles(translated)
   test_output = "../output/test_output.txt"
-  with open(test_output, "w") as f:
-    for s in translated:
-      string_s = makeSentence([w[0] for w in s])
-      f.write(string_s.encode("utf-8"))
-      f.write('\n')
+
+  translateFile(translator, dictionary, dev_file, dev_output)
+  translateFile(translator, dictionary, test_file, test_output)
 
 if __name__ == '__main__':
     main()
